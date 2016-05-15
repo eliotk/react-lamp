@@ -1,7 +1,8 @@
 import React from 'react';
 import {render} from 'react-dom';
-import Lamp from './Lamp.js';
+import Lamp from '../Lamp.js';
 import Genie from 'geniejs';
+import ReactLampDemo from './ReactLampDemo'
 
 const wishes = [
   {
@@ -35,4 +36,7 @@ wishes.forEach((wish) => {
   Genie(wish);
 });
 
-render(<Lamp genie={Genie} />, document.querySelector('#app'));
+render(
+  <ReactLampDemo />
+  , document.querySelector('#app')
+);
