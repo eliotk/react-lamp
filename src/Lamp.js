@@ -83,12 +83,14 @@ class Lamp extends React.Component {
   static propTypes = {
     genie: PropTypes.func.isRequired,
     styles: PropTypes.object,
-    placeholder: PropTypes.string
+    placeholder: PropTypes.string,
+    show: PropTypes.bool
   };
 
   static defaultProps = {
     styles: defaultStyles,
-    placeholder: 'Need a hand? :)'
+    placeholder: 'Make a wish',
+    show: false
   };
 
   constructor() {
@@ -97,7 +99,6 @@ class Lamp extends React.Component {
     this.state = {
       value: '',
       suggestions: this.getSuggestions(''),
-      show: false,
       modalIsOpen: false
     };
 
@@ -140,6 +141,12 @@ class Lamp extends React.Component {
   componentDidUpdate() {
     if(this.state.input) {
       this.state.input.focus();
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if(nextProps.show) {
+      this.showLamp();
     }
   }
 
