@@ -1,6 +1,6 @@
-# WebpackBin project
+# react-lamp
 
-## Start
+## Development
 
 `npm install`
 
@@ -8,6 +8,6 @@
 
 Go to `localhost:8080`
 
-Webpack testing command: webpack --watch --config webpack.test.config.js
+## Testing with karma runner
 
-Then run testem
+`npm test`
