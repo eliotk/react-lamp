@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Project boilerplate",
   "scripts": {
-    "start": "webpack-dev-server --content-base build/"
+    "start": "webpack-dev-server --content-base build/",
+    "test": "karma start"
   },
   "dependencies": {
     "react": "0.14.7",
@@ -34,8 +35,9 @@
     "react-addons-test-utils": "^15.0.2",
     "react-autosuggest": "^3.7.3",
     "react-modal": "^1.2.1",
+    "sinon": "^2.0.0-pre",
+    "sinon-chai": "^2.8.0",
     "style-loader": "^0.13.1",
-    "testem": "^1.6.0",
     "webpack": "1.12.13",
     "webpack-dev-server": "1.14.1"
   },
