@@ -86,13 +86,13 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+	// when suggestion selected, this function tells what should be the value of the inpu
 	function getSuggestionValue(suggestion) {
-	  // when suggestion selected, this function tells
-	  return suggestion.magicWords[0]; // what should be the value of the input
+	  return suggestion.magicWords[0];
 	}
 
 	function renderSuggestion(suggestion) {
-	  if (suggestion.context.any[0] == 'inline') {
+	  if (suggestion.context.any[0] == 'react-lamp-inline') {
 	    return _react2.default.createElement(
 	      'span',
 	      null,
@@ -179,7 +179,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    _this.state = {
 	      value: '',
 	      suggestions: _this.getSuggestions(''),
-	      show: false,
 	      modalIsOpen: false
 	    };
 
@@ -238,6 +237,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	      }
 	    }
 	  }, {
+	    key: 'componentWillReceiveProps',
+	    value: function componentWillReceiveProps(nextProps) {
+	      if (nextProps.show) {
+	        this.showLamp();
+	      }
+	    }
+	  }, {
 	    key: 'showLamp',
 	    value: function showLamp() {
 	      this.setState({ modalIsOpen: true });
@@ -266,7 +272,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      var suggestions = _state.suggestions;
 
 	      var inputProps = {
-	        placeholder: 'Need a hand? :)',
+	        placeholder: this.props.placeholder,
 	        value: value,
 	        onChange: this.onChange
 	      };
@@ -277,14 +283,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	          style: this.props.styles,
 	          shouldCloseOnOverlayClick: true,
 	          onRequestClose: this.closeModal },
-	        _react2.default.createElement(_reactAutosuggest2.default, { theme: this.props.styles,
-	          ref: this.saveInput,
-	          suggestions: suggestions,
-	          onSuggestionsUpdateRequested: this.onSuggestionsUpdateRequested,
-	          onSuggestionSelected: this.onSuggestionSelected.bind(this),
-	          getSuggestionValue: getSuggestionValue,
-	          renderSuggestion: renderSuggestion,
-	          inputProps: inputProps })
+	        _react2.default.createElement(
+	          'div',
+	          { id: 'react-lamp-container' },
+	          _react2.default.createElement(_reactAutosuggest2.default, { theme: this.props.styles,
+	            ref: this.saveInput,
+	            suggestions: suggestions,
+	            onSuggestionsUpdateRequested: this.onSuggestionsUpdateRequested,
+	            onSuggestionSelected: this.onSuggestionSelected.bind(this),
+	            getSuggestionValue: getSuggestionValue,
+	            renderSuggestion: renderSuggestion,
+	            inputProps: inputProps })
+	        )
 	      );
 	    }
 	  }]);
@@ -294,10 +304,14 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	Lamp.propTypes = {
 	  genie: _react.PropTypes.func.isRequired,
-	  styles: _react.PropTypes.object
+	  styles: _react.PropTypes.object,
+	  placeholder: _react.PropTypes.string,
+	  show: _react.PropTypes.bool
 	};
 	Lamp.defaultProps = {
-	  styles: defaultStyles
+	  styles: defaultStyles,
+	  placeholder: 'Make a wish',
+	  show: false
 	};
 	exports.default = Lamp;
 
@@ -546,7 +560,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	*/
 	function isCrushed() {}
 
-	if ((undefined) !== 'production' && typeof isCrushed.name === 'string' && isCrushed.name !== 'isCrushed') {
+	if (("PRODUCTION") !== 'production' && typeof isCrushed.name === 'string' && isCrushed.name !== 'isCrushed') {
 	  (0, _warning2["default"])('You are currently using minified code outside of NODE_ENV === \'production\'. ' + 'This means that you are running a slower development build of Redux. ' + 'You can use loose-envify (https://github.com/zertosh/loose-envify) for browserify ' + 'or DefinePlugin for webpack (http://stackoverflow.com/questions/30030031) ' + 'to ensure you have the correct code for your production build.');
 	}
 
@@ -1124,7 +1138,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      throw sanityError;
 	    }
 
-	    if ((undefined) !== 'production') {
+	    if (true) {
 	      var warningMessage = getUnexpectedStateShapeWarningMessage(state, finalReducers, action);
 	      if (warningMessage) {
 	        (0, _warning2["default"])(warningMessage);
@@ -2004,7 +2018,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	exports["default"] = Provider;
 
-	if ((undefined) !== 'production') {
+	if (true) {
 	  Provider.prototype.componentWillReceiveProps = function (nextProps) {
 	    var store = this.store;
 	    var nextStore = nextProps.store;
@@ -2181,7 +2195,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    function computeMergedProps(stateProps, dispatchProps, parentProps) {
 	      var mergedProps = finalMergeProps(stateProps, dispatchProps, parentProps);
-	      if ((undefined) !== 'production') {
+	      if (true) {
 	        checkStateShape(mergedProps, 'mergeProps');
 	      }
 	      return mergedProps;
@@ -2218,7 +2232,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var state = store.getState();
 	        var stateProps = this.doStatePropsDependOnOwnProps ? this.finalMapStateToProps(state, props) : this.finalMapStateToProps(state);
 
-	        if ((undefined) !== 'production') {
+	        if (true) {
 	          checkStateShape(stateProps, 'mapStateToProps');
 	        }
 	        return stateProps;
@@ -2235,7 +2249,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	          return this.computeStateProps(store, props);
 	        }
 
-	        if ((undefined) !== 'production') {
+	        if (true) {
 	          checkStateShape(mappedState, 'mapStateToProps');
 	        }
 	        return mappedState;
@@ -2250,7 +2264,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        var dispatchProps = this.doDispatchPropsDependOnOwnProps ? this.finalMapDispatchToProps(dispatch, props) : this.finalMapDispatchToProps(dispatch);
 
-	        if ((undefined) !== 'production') {
+	        if (true) {
 	          checkStateShape(dispatchProps, 'mapDispatchToProps');
 	        }
 	        return dispatchProps;
@@ -2267,7 +2281,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	          return this.computeDispatchProps(store, props);
 	        }
 
-	        if ((undefined) !== 'production') {
+	        if (true) {
 	          checkStateShape(mappedDispatch, 'mapDispatchToProps');
 	        }
 	        return mappedDispatch;
@@ -2449,7 +2463,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      store: _storeShape2["default"]
 	    };
 
-	    if ((undefined) !== 'production') {
+	    if (true) {
 	      Connect.prototype.componentWillUpdate = function componentWillUpdate() {
 	        if (this.version === version) {
 	          return;
@@ -2745,7 +2759,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 */
 
 	var invariant = function(condition, format, a, b, c, d, e, f) {
-	  if ((undefined) !== 'production') {
+	  if (true) {
 	    if (format === undefined) {
 	      throw new Error('invariant requires an error message argument');
 	    }
@@ -4356,7 +4370,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        AppElement = ariaAppHider.setElement(element);
 	    },
 	    injectCSS: function() {
-	      "production" !== (undefined)
+	      "production" !== ("PRODUCTION")
 	        && console.warn('React-Modal: injectCSS has been deprecated ' +
 	                        'and no longer has any effect. It will be removed in a later version');
 	    }
