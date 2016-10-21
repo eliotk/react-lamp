@@ -1,16 +1,15 @@
 {
-  "name": "webpackbin-project",
+  "name": "react-lamp",
   "version": "1.0.0",
-  "description": "Project boilerplate",
+  "description": "A react UI package for working with the genie keyboard control library (https://github.com/kentcdodds/genie)",
   "scripts": {
     "start": "webpack-dev-server --content-base build/",
-    "test": "karma start"
+    "test": "karma start",
+    "build": "webpack --config webpack.dist.config.js"
   },
   "dependencies": {
     "react": "0.14.7",
-    "react-dom": "0.14.7",
-    "speechkitt": "0.3.0",
-    "annyang": "2.4.0"
+    "react-dom": "0.14.7"
   },
   "devDependencies": {
     "babel-cli": "^6.8.0",
@@ -41,6 +40,6 @@
     "webpack": "1.12.13",
     "webpack-dev-server": "1.14.1"
   },
-  "author": "WebpackBin",
-  "license": "ISC"
+  "author": "Eliot Kristan",
+  "license": "MIT"
 }
