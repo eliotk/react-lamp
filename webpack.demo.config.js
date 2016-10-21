@@ -25,7 +25,7 @@ module.exports = {
   output: {
     path: path.resolve('demo'),
     filename: '[name].js',
-    publicPath: '/'
+    publicPath: '/react-lamp/demo'
   },
   plugins: [
     new HtmlWebpackPlugin({
