@@ -17,6 +17,7 @@ You also need install the GenieJS package separately if you haven't already:
 And a basic approach for using the component with some wishes loaded into GenieJS:
 
 ```
+import React from 'react';
 import ReactDOM from 'react-dom';
 import Lamp from 'react-lamp';
 import Genie from 'geniejs';
