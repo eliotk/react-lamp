@@ -2,6 +2,7 @@
   "name": "react-lamp",
   "version": "1.0.0",
   "description": "A react UI package for working with the genie keyboard control library (https://github.com/kentcdodds/genie)",
+  "main": "dist/react-lamp.js",
   "scripts": {
     "start": "webpack-dev-server --content-base build/",
     "test": "karma start",
