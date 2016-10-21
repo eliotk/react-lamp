@@ -1,5 +1,9 @@
 # react-lamp
 
+A react UI package for working with the genie keyboard control library (https://github.com/kentcdodds/genie)
+
+Demo: http://www.eliotk.net/react-lamp/demo
+
 ## Development
 
 `npm install`
