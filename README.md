@@ -15,3 +15,9 @@ Go to `localhost:8080`
 ## Distributing
 
 `webpack --config webpack.dist.config.js`
+
+## Updating the demo dist files
+
+```
+webpack --config webpack.demo.config.js --optimize-minimize
+```
