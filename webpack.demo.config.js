@@ -20,7 +20,7 @@ var loaders = [
 ];
 
 module.exports = {
-  devtool: 'eval-source-map',
+  devtool: '#eval-source-map',
   entry: path.resolve('src/demo', 'main.js'),
   output: {
     path: path.resolve('demo'),
